@@ -18,4 +18,4 @@ Site is fully Responsive
 ## Authors
 
 Site Designed and Developed by
-[@Rageshnithin](https://github.com/mrt3chie/)
+[@Rageshnithin](https://www.linkedin.com/in/rageshnithin)
