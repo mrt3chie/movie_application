@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, set } from "firebase/database";
 
 const FavListForm = ({ visible, setSearchBoxVisible }) => {
-  const [formVisible, setFormVisible] = useState(false);
+  const [createPlaylistVisible, setCreatePlaylistVisibile] = useState(false);
 
-  const handleclose = () => {
-    setFormVisible(false);
-    visible = formVisible;
+  //Create Playlist - Start
+
+  const [playListName, setPlaylistName] = useState("");
+  const [playlistAccess, setPlaylistAccess] = useState("");
+
+  const handleRadioChange = (value) => {
+    setPlaylistAccess(value);
   };
+
+  //Create Playlist - End
 
   return (
     <>
@@ -33,11 +40,51 @@ const FavListForm = ({ visible, setSearchBoxVisible }) => {
               </p>
             </div>
             <button
-              className="align-botto p-3 font-bold text-white w-full bg-[#E11D48]"
+              className="mt-[80px] p-3 font-bold text-white w-full bg-[#E11D48]"
               type="button"
+              onClick={() => setCreatePlaylistVisibile(true)}
             >
-              Create New Playlist
+              + Create New Playlist
             </button>
+            {createPlaylistVisible && (
+              <div className="p-4 bg-[#E11D48] h-[145px] rounded-b-[20px] text-white">
+                <div className="flex items-center">
+                  <p className="font-bold">Name</p>
+                  <input
+                    type="text"
+                    placeholder="Type movielist name"
+                    className="ml-5 p-1 bg-transparent placeholder-white underline underline-offset-2"
+                  />
+                </div>
+                <div className="flex mt-2">
+                  <p className="font-bold">Privacy</p>
+                  <input
+                    type="radio"
+                    id="private"
+                    value="private"
+                    checked={playlistAccess === "private"}
+                    onChange={() => handleRadioChange("private")}
+                    className="ml-3 text-[14px]"
+                  />{" "}
+                  Private
+                  <input
+                    type="radio"
+                    id="public"
+                    value="public"
+                    checked={playlistAccess === "public"}
+                    onChange={() => handleRadioChange("public")}
+                    className="ml-3 text-[14px]"
+                  />{" "}
+                  Public
+                </div>
+                <button
+                  className="mt-3 px-3 py-2 font-bold text-[#E11D48] bg-white rounded-[5px]"
+                  type="button"
+                >
+                  Create
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

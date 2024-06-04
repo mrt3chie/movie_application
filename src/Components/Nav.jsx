@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../Configuration/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import SearchBox from "./SearchBox";
-import { FaTimes, FaBars } from "react-icons/fa";
 
 const Nav = ({ setSearchBoxVisible, setSearchTerm }) => {
   const { currentUser, logout } = useAuth();
-
-  const [nav, setNav] = useState(false);
 
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -38,7 +34,7 @@ const Nav = ({ setSearchBoxVisible, setSearchTerm }) => {
         {currentUser ? (
           <div className="flex space-x-6">
             <p className="hidden md:flex text-xl">
-              <span className=" font-semibold">Welcome,</span> User
+              <span className=" font-semibold">Welcome</span>
             </p>
 
             <button

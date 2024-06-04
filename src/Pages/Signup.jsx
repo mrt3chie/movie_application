@@ -15,6 +15,7 @@ const Signup = () => {
     try {
       const { user } = await signup(email, password);
 
+      const userid = user.uid;
       await addDoc(collection(db, "users"), {
         userId: user.uid,
         name: name,
@@ -27,7 +28,6 @@ const Signup = () => {
       navigate("/");
     } catch (error) {
       setLoading(false);
-      setError("Account Creation failed");
       console.error("Signup error:", error);
     }
   };
