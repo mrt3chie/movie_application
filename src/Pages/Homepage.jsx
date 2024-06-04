@@ -11,7 +11,7 @@ const Homepage = ({ searchVisible, setSearchBoxVisible }) => {
   const fetchMovies = async (searchQuery) => {
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?apikey=${
+        `https://www.omdbapi.com/?apikey=${
           import.meta.env.VITE_OMDB_API_KEY
         }&s=${searchQuery}&type=movie`
       );
@@ -19,7 +19,7 @@ const Homepage = ({ searchVisible, setSearchBoxVisible }) => {
         const movieDetails = await Promise.all(
           response.data.Search.slice(0, 9).map(async (movie) => {
             const detailResponse = await axios.get(
-              `http://www.omdbapi.com/?apikey=${
+              `https://www.omdbapi.com/?apikey=${
                 import.meta.env.VITE_OMDB_API_KEY
               }&i=${movie.imdbID}`
             );

@@ -13,7 +13,7 @@ const MovieDetail = ({ visible, setSearchBoxVisible }) => {
     const fetchMovieDetails = async () => {
       try {
         const response = await axios.get(
-          `http://www.omdbapi.com/?apikey=${
+          `https://www.omdbapi.com/?apikey=${
             import.meta.env.VITE_OMDB_API_KEY
           }&i=${id}`
         );
