@@ -10,6 +10,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import PrivateRoute from "./Configuration/PrivateRoute";
 import MovieDetail from "./Sections/MovieDetail";
+import Copyright from "./Components/Copyright";
 
 const App = () => {
   const [isSearchBoxVisible, setSearchBoxVisible] = useState(false);
@@ -49,6 +50,7 @@ const App = () => {
           </Routes>
         </AuthProvider>
       </Router>
+      <Copyright />
     </div>
   );
 };
