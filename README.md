@@ -7,8 +7,6 @@
   npm run dev
 ```
 
-Note: The .env file contains all the API Keys that are used in this project and I haven't hide those keys
-
 ## Live Link
 
 https://moviesnowapp.netlify.app/
